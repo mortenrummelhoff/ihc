@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features>
+  <feature name="ihc-feature">
+    <bundle>mvn:ihc-openapi-api/ihc-openapi-api/1.0.0</bundle>
+  </feature>
+</features>
