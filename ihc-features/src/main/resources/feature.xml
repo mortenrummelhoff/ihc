@@ -1,0 +1,29 @@
+<features>   
+ 
+    <feature name="IHC" version="1.0">
+	   	<bundle start-level='90'>mvn:ihc-openapi-api/ihc-openapi-api/1.0.0</bundle>
+		<bundle start-level='92'>mvn:ihc-openapi-service/ihc-openapi-service/1.0.0</bundle>
+		<bundle start-level='90'>mvn:pushhandler/pushhandler/1</bundle>
+		<bundle start-level='90'>mvn:ihc-receiver-api/ihc-receiver-api/0.0.1</bundle>
+		<bundle start-level='94'>mvn:ihc-receiver-impl/ihc-receiver-impl/0.0.1</bundle>
+		<bundle start-level='96'>mvn:mhrweb/webservice/1.1</bundle>
+    </feature>    
+    
+    <feature name="Apache-Features" version="1.0" resolver="(obr)">
+	   	<bundle start-level='80'>mvn:org.apache.mina/mina-core/2.0.5</bundle>
+		<bundle start-level='80'>wrap:mvn:org.apache.clerezza.ext/org.json.simple/0.3-incubating</bundle>    	
+    </feature>        
+    
+    <!-- <feature name="Spring-Security" version="1.0" resolver="(obr)">
+	   	<bundle start-level='80'>wrap:mvn:org.springframework.security/spring-security-web/3.2.0.RELEASE</bundle>
+		<bundle start-level='80'>wrap:mvn:org.springframework.security/spring-security-config/3.2.0.RELEASE</bundle>    	
+    	<bundle start-level='80'>wrap:mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aopalliance/1.0_1</bundle>
+        <bundle start-level='80'>wrap:mvn:org.springframework/spring-core/3.2.6.RELEASE</bundle>
+        <bundle start-level='80'>wrap:mvn:org.springframework/spring-beans/3.2.6.RELEASE</bundle>
+        <bundle start-level='80'>wrap:mvn:org.springframework/spring-aop/3.2.6.RELEASE</bundle>
+        <bundle start-level='80'>wrap:mvn:org.springframework/spring-context/3.2.6.RELEASE</bundle>
+        <bundle start-level='80'>wrap:mvn:org.springframework/spring-context-support/3.2.6.RELEASE</bundle>
+    </feature>         -->
+    
+    
+</features>
