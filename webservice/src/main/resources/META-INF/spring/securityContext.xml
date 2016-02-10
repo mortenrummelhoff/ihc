@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:osgi="http://www.springframework.org/schema/osgi"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/osgi 
+           http://www.springframework.org/schema/osgi/spring-osgi.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<http entry-point-ref="authenticationEntryPoint"  authentication-manager-ref="authenticationManager">
+		<custom-filter ref="mhrServletFilter" position="BASIC_AUTH_FILTER"/>
+		<intercept-url pattern="/**" access="ROLE_USER" />
+		<anonymous enabled="false"/>
+	</http>
+	
+	<authentication-manager alias="authenticationManager" id="basicAuthenticationManager">
+		<authentication-provider>
+			<user-service>
+				<user name="morten" password="mhrmhr" authorities="ROLE_USER" />
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
+
+<beans:bean id="mhrServletFilter"
+     class="dk.mhr.servlet.filter.ServletFilter">
+     <beans:property name="authenticationManager" ref="authenticationManager"/>
+  	 <beans:property name="authenticationEntryPoint" ref="authenticationEntryPoint"/>
+</beans:bean>
+
+<beans:bean id="authenticationEntryPoint"
+     class="org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint">
+  	<beans:property name="realmName" value="mhr.dk"/>
+</beans:bean>
+  
+</beans:beans>

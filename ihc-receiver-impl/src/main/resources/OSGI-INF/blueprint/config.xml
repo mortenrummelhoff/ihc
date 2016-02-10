@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+	<reference id="pushService" interface="dk.mhr.pushhandler.service.PushInterface" />
+	<reference id="openAPIService" interface="dk.ihc.openapi.OpenAPIService"/>
+
+	<bean id="telnetMan" class="dk.ihc.receiver.TelnetManager" />
+
+	<bean id="receiverMain" class="dk.ihc.receiver.ReceiverMain" >
+		<argument ref="openAPIService"/>
+		<argument ref="pushService"/>
+		<property name="telnetManager" ref="telnetMan"/>	
+	</bean>
+
+	<service id="receiverService" ref="receiverImpl" interface="dk.ihc.receiver.service.ReceiverService" />
+    
+    <bean id="receiverImpl" class="dk.ihc.receiver.impl.ReceiverImpl">
+    	<argument ref="telnetMan"/>
+    </bean>
+
+</blueprint>
